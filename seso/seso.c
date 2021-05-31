@@ -21,13 +21,13 @@ static PyObject* seso_sort(PyObject *self, PyObject *args) {
     PyArray_AsCArray(&arr, (void *)&cArr, dims, PyArray_NDIM(arr), PyArray_DescrFromType(NPY_DOUBLE));
 
     int err = sort(cArr, dims[0], algorithm);
-    
+
+    Py_DECREF(arr);
+
     if(err==1) {
         PyErr_SetString( PyExc_ValueError, "specified sort type not available");
-        Py_DECREF(arr);
         return NULL;
     } else {
-        Py_DECREF(arr);
         return PyArray_Return(arr);
     }
 }
@@ -48,12 +48,12 @@ static PyObject* seso_search(PyObject *self, PyObject *args) {
 
     int out = search(cArr, val, dims[0], algorithm);
     
+    Py_DECREF(arr);
+
     if(out==1) {
         PyErr_SetString( PyExc_ValueError, "specified search type not available");
-        Py_DECREF(arr);
         return NULL;
     } else {
-        Py_DECREF(arr);
         return PyLong_FromLong(out);
     }
 }
