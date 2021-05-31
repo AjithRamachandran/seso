@@ -2,7 +2,8 @@
 #define INSERTION_SORT_H
 
 void insertionSort(double *arr, int size) {
-    int i, j, key;
+    int i, j;
+    double key;
     for (i = 1; i < size; i++) {
         j = i - 1;
         key = arr[i];

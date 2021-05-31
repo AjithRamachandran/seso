@@ -4,7 +4,8 @@
 #include "utils.h"
 
 int partition(double *arr, int lower, int upper) {
-    int i, j, pivot;
+    int i, j;
+    double pivot;
     i = (lower - 1);
     pivot = arr[upper];
     for (j = lower; j < upper; j++) {
