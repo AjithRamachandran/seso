@@ -1,14 +1,14 @@
 #ifndef SORT_H
 #define SORT_H
 
-#include "bubblesort.h"
-#include "selectionsort.h"
-#include "insertionsort.h"
-#include "quicksort.h"
-#include "mergesort.h"
-#include "heapsort.h"
-#include "bucketsort.h"
-#include "radixsort.h"
+#include "sort/bubblesort.h"
+#include "sort/selectionsort.h"
+#include "sort/insertionsort.h"
+#include "sort/quicksort.h"
+#include "sort/mergesort.h"
+#include "sort/heapsort.h"
+#include "sort/bucketsort.h"
+#include "sort/radixsort.h"
 
 int sort(double *arr, int len, char *algorithm) {
     if (strcmp(algorithm, "bubblesort") == 0) {
