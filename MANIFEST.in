@@ -1,4 +1,8 @@
-include README.md
 include LICENSE
-include seso/*
-include docs/*
+include README.md
+include setup.py
+include docs\README.md
+include seso\*
+include seso\include\*
+include seso\include\search\*
+include seso\include\sort\*
