@@ -7,7 +7,7 @@ static PyObject* seso_sort(PyObject *self, PyObject *args) {
     PyObject *arg=NULL, *arr=NULL;
     double *cArr;
     npy_intp dims[3];
-    char* algorithm = "bubblesort"; // bubblesort is the default sorting for now
+    char* algorithm = "mergesort"; // mergesort is the default sorting
 
     if (!PyArg_ParseTuple(args, "O|s", &arg, &algorithm))
         return NULL;

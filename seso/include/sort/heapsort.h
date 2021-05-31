@@ -20,12 +20,12 @@ void heapify(double *arr, int n, int i) {
     }
 }
 
-void heapSort(double *arr, int n) {
+void heapSort(double *arr, int size) {
     int i, j;
-    for (i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
+    for (i = size / 2 - 1; i >= 0; i--)
+        heapify(arr, size, i);
  
-    for (j = n - 1; j > 0; j--) {
+    for (j = size - 1; j > 0; j--) {
         swap(&arr[0], &arr[j]);
         heapify(arr, j, 0);
     }
