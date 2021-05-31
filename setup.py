@@ -11,7 +11,7 @@ seso = Extension('seso',
 
 setup(
     name="seso",
-    version="0.1-dev",
+    version="0.1",
     author="Ajith Ramachandran",
     author_email="ajithar204@gmail.com",
     description="Search and Sort Algorithms",
