@@ -1,15 +1,15 @@
 #ifndef INSERTION_SORT_H
 #define INSERTION_SORT_H
 
-void insertionSort(double *arr, int size) {
+void insertionSort(double *arr, int left, int right) {
     int i, j;
     double key;
-    for (i = 1; i < size; i++) {
+    for (i = left + 1; i <= right; i++) {
         j = i - 1;
         key = arr[i];
-        while (j >= 0 && key < arr[j]) {
+        while (j >= left && key < arr[j]) {
             arr[j + 1] = arr[j];
-            j = j - 1;
+            j--;
         }
         arr[j + 1] = key;
     }

@@ -36,6 +36,9 @@ class TestSortAlgorithms(unittest.TestCase):
     def test_shell_sort(self):
         np.testing.assert_array_equal(seso.sort(self.arr, 'shellsort'), self.true)
 
+    def test_tim_sort(self):
+        np.testing.assert_array_equal(seso.sort(self.arr, 'timsort'), self.true)
+
 
 if __name__ == '__main__':
     unittest.main()

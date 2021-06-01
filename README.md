@@ -30,6 +30,7 @@
     - radix sort
     - bucket sort
     - shell sort
+    - tim sort
 
 ## [Documentation](https://github.com/AjithRamachandran/seso/tree/main/docs)
 
