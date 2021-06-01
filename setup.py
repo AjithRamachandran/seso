@@ -5,13 +5,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
     fh.close()
 
-seso = Extension('seso',
-                     sources=['seso/seso.c'],
-                     include_dirs=[numpy.get_include(), 'seso/include'])
+seso = Extension('seso', sources=['seso/seso.c'], include_dirs=[numpy.get_include(), 'seso/include'])
 
 setup(
     name="seso",
-    version="0.2-dev",
+    version="0.2",
     author="Ajith Ramachandran",
     author_email="ajithar204@gmail.com",
     description="Search and Sort Algorithms",
