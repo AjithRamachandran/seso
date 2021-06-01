@@ -9,23 +9,29 @@
 
 static PyObject* seso_sort(PyObject *self, PyObject *args) {
     PyObject *arg=NULL, *arr=NULL;
-    double *cArr;
+    PyArray_Descr *descr = NULL;
     npy_intp dims[3];
-    char* algorithm = "mergesort"; // mergesort is the default sorting algorithm
+    int nd=0;
+    double *cArr=NULL;
+    char* algorithm = "mergesort"; /* mergesort is the default sorting algorithm */
 
     if (!PyArg_ParseTuple(args, "O|s", &arg, &algorithm))
         return NULL;
 
-    arr = PyArray_FROM_OTF(arg, NPY_DOUBLE, NPY_ARRAY_C_CONTIGUOUS);
+    arr = PyArray_FROM_OT(arg, NPY_DOUBLE);
 
-    PyArray_AsCArray(&arr, (void *)&cArr, dims, PyArray_NDIM(arr), PyArray_DescrFromType(NPY_DOUBLE));
+    nd = PyArray_NDIM((PyArrayObject *)arr);
+    descr = PyArray_DESCR((PyArrayObject *)arr);
+    Py_INCREF(descr); /* PyArray_AsCArray steals a reference to this */
 
+    PyArray_AsCArray(&arr, (void *)&cArr, dims, nd, descr);
     int err = sort(cArr, dims[0], algorithm);
 
-    Py_DECREF(arr);
+    PyArray_Free(arr, (void *)cArr);
 
     if(err==1) {
         PyErr_SetString( PyExc_ValueError, "specified sort type not available");
+        Py_XDECREF(arg);
         return NULL;
     } else {
         return PyArray_Return(arr);
@@ -33,22 +39,20 @@ static PyObject* seso_sort(PyObject *self, PyObject *args) {
 }
 
 static PyObject* seso_search(PyObject *self, PyObject *args) {
-    PyObject *arg=NULL, *arr=NULL;
+    PyObject *arr=NULL;
     double *cArr;
     double val;
     npy_intp dims[3];
-    char* algorithm = "binarysearch"; // binarysearch is the default searching algorithm
+    char* algorithm = "binarysearch"; /* binarysearch is the default searching algorithm */
 
-    if (!PyArg_ParseTuple(args, "Od|s", &arg, &val, &algorithm))
+    if (!PyArg_ParseTuple(args, "Od|s", &arr, &val, &algorithm))
         return NULL;
-
-    arr = PyArray_FROM_OTF(arg, NPY_DOUBLE, NPY_ARRAY_C_CONTIGUOUS);
 
     PyArray_AsCArray(&arr, (void *)&cArr, dims, PyArray_NDIM(arr), PyArray_DescrFromType(NPY_DOUBLE));
 
     int out = search(cArr, val, dims[0], algorithm);
     
-    Py_DECREF(arr);
+    PyArray_Free(arr, (void *)&cArr);
 
     if(out==1) {
         PyErr_SetString( PyExc_ValueError, "specified search type not available");

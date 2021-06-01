@@ -2,8 +2,7 @@
 #define BUCKET_SORT_H
 
 void bucketSort(double *arr, int size) {
-    int i, j, temp;
-    int *count;
+    int i, j, temp, *count;
 
     count = (int*)malloc(size * sizeof(int));
 
