@@ -54,6 +54,7 @@ seso.search([1,4,2,5,7], 4, 'jumpsearch')
 | Radix Sort            | radixsort                 | O(nk)             |
 | Bucket Sort           | bucketsort                | O(n^2)            |
 | Shell Sort            | shellsort                 | O(n log(n))       |
+| Tim Sort              | timsort                   | O(n log(n))       |
 
 <br/>
 
