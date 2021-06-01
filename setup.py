@@ -9,7 +9,7 @@ seso = Extension('seso', sources=['seso/seso.c'], include_dirs=[numpy.get_includ
 
 setup(
     name="seso",
-    version="0.2",
+    version="0.3-dev",
     author="Ajith Ramachandran",
     author_email="ajithar204@gmail.com",
     description="Search and Sort Algorithms",
