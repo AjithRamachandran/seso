@@ -33,6 +33,9 @@ class TestSortAlgorithms(unittest.TestCase):
     def test_radix_sort(self):
         np.testing.assert_array_equal(seso.sort(self.arr, 'radixsort'), self.true)
 
+    def test_shell_sort(self):
+        np.testing.assert_array_equal(seso.sort(self.arr, 'shellsort'), self.true)
+
 
 if __name__ == '__main__':
     unittest.main()

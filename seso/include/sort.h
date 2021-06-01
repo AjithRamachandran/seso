@@ -9,6 +9,7 @@
 #include "sort/heapsort.h"
 #include "sort/bucketsort.h"
 #include "sort/radixsort.h"
+#include "sort/shellsort.h"
 
 int sort(double *arr, int len, char *algorithm) {
     if (strcmp(algorithm, "bubblesort") == 0) {
@@ -27,6 +28,8 @@ int sort(double *arr, int len, char *algorithm) {
         bucketSort(arr, len); 
     } else if (strcmp(algorithm, "radixsort") == 0) {
         radixSort(arr, len); 
+    } else if (strcmp(algorithm, "shellsort") == 0) {
+        shellSort(arr, len); 
     } else {
         return 1;
     }

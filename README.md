@@ -29,6 +29,7 @@
     - heap sort
     - radix sort
     - bucket sort
+    - shell sort
 
 ## [Documentation](https://github.com/AjithRamachandran/seso/tree/main/docs)
 
