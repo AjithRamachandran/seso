@@ -5,7 +5,8 @@
 
 double getMax(double *arr, int n) {
     double max = arr[0];
-    for (int i = 1; i < n; i++)
+    int i;
+    for (i = 1; i < n; i++)
         if (arr[i] > max)
             max = arr[i];
     return max;
@@ -13,7 +14,8 @@ double getMax(double *arr, int n) {
 
 void countSort(double *arr, int size, int exp) {
     double *output;
-    int i, temp, count[10] = {0};
+    int temp;
+    int i, count[10] = {0};
 
     output = (double*)malloc(size * sizeof(double));
 

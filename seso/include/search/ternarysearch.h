@@ -1,7 +1,7 @@
 #ifndef TERNARY_SEARCH_H
 #define TERNARY_SEARCH_H
 
-int ternarySearch(double *arr, int left, int right, int val) {
+int ternarySearch(double *arr, int left, int right, double val) {
     int mid1, mid2;
     if (right >= left) {
         mid1 = left + (right - left) / 3;

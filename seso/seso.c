@@ -10,7 +10,8 @@
 static PyObject* seso_sort(PyObject *self, PyObject *args) {
     PyObject *arg=NULL, *arr=NULL;
     PyArray_Descr *descr = NULL;
-    npy_intp nd=0, dims[3];
+    npy_intp dims[3];
+    int nd=0;
     double *cArr=NULL;
     char* algorithm = "mergesort"; /* mergesort is the default sorting algorithm */
 
@@ -19,8 +20,8 @@ static PyObject* seso_sort(PyObject *self, PyObject *args) {
 
     arr = PyArray_FROM_OT(arg, NPY_DOUBLE);
 
-    nd = PyArray_NDIM(arr);
-    descr = PyArray_DESCR(arr);
+    nd = PyArray_NDIM((PyArrayObject *)arr);
+    descr = PyArray_DESCR((PyArrayObject *)arr);
     Py_INCREF(descr); /* PyArray_AsCArray steals a reference to this */
 
     PyArray_AsCArray(&arr, (void *)&cArr, dims, nd, descr);

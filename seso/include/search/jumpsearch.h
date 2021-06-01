@@ -1,13 +1,10 @@
 #ifndef JUMP_SEARCH_H
 #define JUMP_SEARCH_H
 
-#define min(X, Y) ((X) < (Y) ? (X) : (Y))
-
 #include <math.h>
 
-int jumpSearch(double *arr, int n, int val) {
-    int step = floor(sqrt(n));
-    int prev = 0;
+int jumpSearch(double *arr, int n, double val) {
+    int step = floor(sqrt(n)), prev = 0;
 
     while (arr[min(step, n) - 1] < val) {
         prev = step;

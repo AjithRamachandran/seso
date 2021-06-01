@@ -4,7 +4,7 @@
 int binarySearch(double *arr, int left, int right, double val) {
     int mid;
     if (right >= left) {
-        int mid = left + (right - left) / 2;
+        mid = left + (right - left) / 2;
 
         if (arr[mid] == val)
             return mid;
